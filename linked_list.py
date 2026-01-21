@@ -10,7 +10,8 @@ class Node:
         - Assign the provided 'data' to an instance variable.
         - Initialize 'next' to None.
         """
-        pass
+        self.data = data
+        self.next = None
 
 
 class LinkedList:
@@ -23,7 +24,7 @@ class LinkedList:
         TODO:
         - Initialize 'head' to None to represent an empty list.
         """
-        pass
+        self.head = None
 
     def insert_at_front(self, data):
         """
@@ -32,7 +33,9 @@ class LinkedList:
         - Insert it at the front of the list (head).
         - Update 'head' to the new node.
         """
-        pass
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
 
     def insert_at_end(self, data):
         """
@@ -41,7 +44,14 @@ class LinkedList:
         - Traverse to the end of the list.
         - Set the last node's 'next' reference to the new node.
         """
-        pass
+        new_node = Node(data)
+        if not self.head:
+            self.head = new_node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
 
     def recursive_sum(self):
         """
